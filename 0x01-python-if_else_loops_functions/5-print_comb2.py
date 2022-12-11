@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-for num1 in range(0, 10):
-    for num2 in range(0, 10):
-        if num1 == 9 and num2 == 9:
-            print("99")
-        print("{}{}, ".format(num1, num2), end="")
+for num1 in range(0, 100):
+    if num1 in range(0, 10):
+        print("0", end="")
+    if num1 == 99:
+        print(num1)
+    print("{}, ".format(num1), end="")
