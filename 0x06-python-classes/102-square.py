@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+"""Ddefine a class square"""
+
+
 class Square:
     """Represent a square."""
 
