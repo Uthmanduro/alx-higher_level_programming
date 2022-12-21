@@ -4,8 +4,12 @@
 
 class Square:
     """Represents a square class"""
-    def __init__(self, size):
-        """Initializes an instance attribute"""
+
+    def __init__(self, size=0):
+        """Initializes an instance attribute
+        Args:
+            size: size of the square
+        """
         self.__size = size
 
     @property
