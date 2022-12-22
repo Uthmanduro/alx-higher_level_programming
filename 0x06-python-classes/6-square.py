@@ -1,10 +1,8 @@
 #!/usr/bin/python3
-"""Defines a square class"""
-
-
 class Square:
-    """Represents a class square"""
-     def __init__(self, size=0, position=(0, 0)):
+    """ A class that defines a square by its size
+    """
+    def __init__(self, size=0, position=(0, 0)):
         """ Method to initialize the square object
         """
         self.size = size
@@ -49,11 +47,16 @@ class Square:
         self.__position = value
 
     def area(self):
-        return (self.__size * self.__size)
+        """ Method that returns the square are of the object
+        """
+        return (self.__size ** 2)
 
     def my_print(self):
-        if self.__size == 0:
-            print("")
+        """ Method that prints a # square according
+        to the size value
+        """
+        if self.size == 0:
+            print()
         else:
             for i in range(self.position[1]):
                 print()
