@@ -43,8 +43,5 @@ class Square:
         if self.__size == 0:
             print("")
         for shape in range(self.__size):
-            if self.__position[1] > 0:
-                print(" " * self.__position[0] + "#" * self.__size)
-            else:
                 print(" " * self.__position[0] + "#" * self.__size +
-                      " " * self.position[1])
+                      "" * self.position[1])
