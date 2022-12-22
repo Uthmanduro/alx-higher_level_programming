@@ -42,6 +42,12 @@ class Square:
     def my_print(self):
         if self.__size == 0:
             print("")
-        for shape in range(self.__size):
-                print(" " * self.__position[0] + "#" * self.__size +
-                      "" * self.position[1])
+        else:
+            for i in range(self.position[1]):
+                print()
+            for i in range(0, self.size):
+                for k in range(self.position[0]):
+                    print(" ", end='')
+                for j in range(self.size):
+                    print("#", end='')
+                print()
