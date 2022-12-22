@@ -4,29 +4,33 @@
 
 class Square:
     """Represents a class square"""
-    def __init__(self, size=0, position=(0, 0)):
-        """initialize instance attribute"""
-        self.__size = size
-        self.__position = position
+     def __init__(self, size=0, position=(0, 0)):
+        """ Method to initialize the square object
+        """
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
-        """Property getter"""
-        return (self.__size)
+        """ Method to returns the size value
+        """
+        return self.__size
 
     @size.setter
     def size(self, value):
-        """Sets the value of size object"""
+        """ Method to set the size value of the square object
+        """
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
-        elif value < 0:
+        if value < 0:
             raise ValueError("size must be >= 0")
         self.__size = value
 
     @property
     def position(self):
-        """Gets the value of position"""
-        return (self.__position)
+        """ Method that returns the position value
+        """
+        return self.__position
 
     @position.setter
     def position(self, value):
