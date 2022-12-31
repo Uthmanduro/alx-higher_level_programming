@@ -1,0 +1,32 @@
+Test for a function that divides all elements of a matrix
+Import function from the module:
+	>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+Test for normal parameters:
+	>>> matrix_divided([[1, 2, 3], [4, 5, 6]], 3) #doctest: +REPORT_NDIFF
+	[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+Test for matrix of a single list:
+	>>> matrix_divided([1, 2, 3], 3) #doctest: +REPORT_NDIFF
+	Traceback (most recent call last):
+	TypeError: matrix must be a matrix (list of lists) of integer/floats
+
+Test for strings or other data types inside the matrix:
+	>>> matrix_divided([[1, 2, 3], [4, 5, "sd"]], 3) #doctest: +REPORT_NDIFF
+	Traceback (most recent call last):
+        TypeError: matrix must be a matrix (list of lists) of integer/floats
+
+Test for if row of the matrix are of the same size:
+	>>> matrix_divided([[1, 2, 3], [4, 5]], 3) #doctest: +REPORT_NDIFF
+        Traceback (most recent call last):
+	TypeError: Each row of the matrix must have the same size
+
+Test for if div is a number:
+    	>>> matrix_divided([[1, 2, 3], [4, 5, 6]], "3") #doctest: +REPORT_NDIFF
+    	Traceback (most recent call last):
+    	TypeError: div must be a number
+
+Test for if div is zero(0):
+    	>>> matrix_divided([[1, 2, 3], [4, 5, 6]], 0) #doctest: +REPORT_NDIFF 
+    	Traceback (most recent call last):
+    	ZeroDivisionError: division by zero

@@ -1,0 +1,36 @@
+The ``0-add_integer`` module
+============================
+
+Using ``add_integer``
+--------------------
+Return an  integer on addition of a aand b
+Importing function from the module:
+        >>> add_integer = __import__('0-add_integer').add_integer
+	
+        Args:
+        a: first inteer
+        b: second argument
+correct arguments:
+        >>> add_integer(20, 20)
+        40
+
+float arguments:
+	>>> add_integer(2.0, 2.0)
+        4
+
+string arguments:
+        >>> add_integer("s", 4)
+        Traceback (most recent call last):
+            ...
+        TypeError: a must be an integer
+
+infinity arguments:
+	>>> add_integer(float('inf'))
+    	Traceback (most recent call last):
+    	OverflowError: cannot convert float infinity to integer
+
+arguments with not available numbers:
+	>>> add_integer(float('nan'))
+    	Traceback (most recent call last):
+    	ValueError: cannot convert float NaN to integer
+
