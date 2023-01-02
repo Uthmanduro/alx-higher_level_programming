@@ -10,7 +10,7 @@ def say_my_name(first_name, last_name=""):
 
         Args:
             first_name: first name passed to the function
-            last_name: lastname passed to the function 
+            last_name: lastname passed to the function
                     if none is passed it sets the name as None
     """
     if not isinstance(first_name, str):
