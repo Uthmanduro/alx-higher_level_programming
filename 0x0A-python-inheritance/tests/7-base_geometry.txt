@@ -2,25 +2,28 @@ test filie
 
 Import the classs module
     >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
-    >>> bg = BaseGeometry()
 
 test for area:
+    >>> bg = BaseGeometry()
     >>> print(bg.area())
     Traceback (most recent call last):
     Exception: area() is not implemented
 
 
 test for name:
+    >>> bg = BaseGeometry()
     >>> print(bg.integer_validator("uthman", "as"))
     Traceback (most recent call last):
     TypeError: uthman must be an integer
 
 test for value = 0:
+    >>> bg = BaseGeometry()
     >>> print(bg.integer_validator("uthman", 0))
     Traceback (most recent call last):
     ValueError: uthman must be greater than 0
 
 test fo negative value:
+    >>> bg = BaseGeometry()
     >>> print(bg.integer_validator("uthman", -3))
     Traceback (most recent call last):
     ValueError: uthman must be greater than 0
