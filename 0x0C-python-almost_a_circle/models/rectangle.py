@@ -48,7 +48,7 @@ class Rectangle(Base):
     def x(self, value):
         if not isinstance(value, int):
             raise TypeError("x must be an integer")
-        if value <= 0:
+        if value < 0:
             raise ValueError("x must be >= 0")
         else:
             self.__x = value
@@ -61,7 +61,7 @@ class Rectangle(Base):
     def y(self, value):
         if not isinstance(value, int):
             raise TypeError("y must be an integer")
-        if value <= 0:
+        if value < 0:
             raise ValueError("y must be >= 0")
         else:
             self.__y = value
@@ -72,8 +72,15 @@ class Rectangle(Base):
 
     def display(self):
         """prints the rectangle instance with the character #"""
-        for height in range(self.height):
-            print("#" * self.width)
+        for line in range(self.y):
+            print()
+        for row in range(self.height):
+            print(" " * self.x + "#" * self.width)
 
     def __str__(self):
+        return "[Rectangle] (" + str(self.id) + ") " + str(self.x) + "/" +\
+                str(self.y) + " - " + str(self.width) + "/" + str(self.height)
 
+    def update(self, *args):
+        args = [id, self.width, self.height, self.x, self.y]
+        return update(args)
