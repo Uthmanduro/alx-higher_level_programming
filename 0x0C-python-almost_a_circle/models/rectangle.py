@@ -9,11 +9,11 @@ from models.base import Base
 class Rectangle(Base):
     def __init__(self, width, height, x=0, y=0, id=None):
         """Defines the recatngle class"""
-        Base.__init__(self, id)
         self.width = width
         self.height = height
         self.x = x
         self.y = y
+        Base.__init__(id)
 
     @property
     def width(self):
@@ -81,6 +81,9 @@ class Rectangle(Base):
 
     def display(self):
         """prints the rectangle instance with the character #"""
+        if self.width == 0 or self.height == 0:
+            print("")
+            return
         for line in range(self.y):
             print()
         for row in range(self.height):
@@ -89,7 +92,7 @@ class Rectangle(Base):
     def __str__(self):
         """returs the string representation of the object"""
         return "[Rectangle] (" + str(self.id) + ") " + str(self.x) + "/" +\
-    str(self.y) + " - " + str(self.width) + "/" + str(self.height)
+               str(self.y) + " - " + str(self.width) + "/" + str(self.height)
 
     def update(self, *args, **kwargs):
         """update the rectangle by assigning an argument to each variable"""
@@ -111,10 +114,13 @@ class Rectangle(Base):
                 elif count == 4:
                     self.y = item
                 count += 1
-        for key, value in kwargs.items():
-            if len(kwargs) != 0:
+        elif kwargs and len(kwargs) != 0:
+            for key, value in kwargs.items():
                 if key == "id":
-                    self.id = value
+                    if value is None:
+                        self.__init__(self.width, self.height, self.x, self.y)
+                    else:
+                        self.id = value
                 elif key == "width":
                     self.width = value
                 elif key == "height":
@@ -127,4 +133,4 @@ class Rectangle(Base):
     def to_dictionary(self):
         """returns the dictionary representation of a rectangle"""
         return {"id": self.id, "width": self.width, "height": self.height, "x":
-                 self.x, "y": self.y}
+                self.x, "y": self.y}

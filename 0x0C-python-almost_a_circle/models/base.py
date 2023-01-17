@@ -3,22 +3,25 @@
 
 
 import json
+import csv
+import turtle
 
 
 class Base:
     """Declaring the base class"""
     __nb_objects = 0
+
     def __init__(self, id=None):
         """initialize the class constructor"""
         self.id = id
-        if id == None:
+        if id is None:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
 
     @staticmethod
     def to_json_string(list_dictionaries):
         """adds a static method that returns a json string repr of list_dict"""
-        if list_dictionaries is None:
+        if list_dictionaries is None or list_dictionaries == []:
             return "[]"
         return json.dumps(list_dictionaries)
 
@@ -36,8 +39,8 @@ class Base:
     @staticmethod
     def from_json_string(json_string):
         """returns the list of json string representation"""
-        if json_string is None or json_string == []:
-            return "[]"
+        if json_string is None or json_string == "[]":
+            return []
         else:
             return json.loads(json_string)
 

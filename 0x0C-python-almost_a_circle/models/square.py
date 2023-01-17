@@ -15,7 +15,7 @@ class Square(Rectangle):
     def __str__(self):
         """returns the string repr when the square object is printed"""
         return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y,
-                self.width)
+                                                 self.width)
 
     @property
     def size(self):
@@ -33,7 +33,10 @@ class Square(Rectangle):
             count = 0
             for item in args:
                 if count == 0:
-                    self.id = item
+                    if item is None:
+                        self.__init__(self.size, self.x, self.y)
+                    else:
+                        self.id = item
                 elif count == 1:
                     self.size = item
                 elif count == 2:
@@ -44,13 +47,18 @@ class Square(Rectangle):
         if len(kwargs) != 0:
             for key, value in kwargs.items():
                 if key == "id":
-                    self.id = value
+                    if value is None:
+                        self.__init__(self.size, self.x, self.y)
+                    else:
+                        self.id = value
                 elif key == "size":
                     self.size = value
                 elif key == "x":
                     Rectangle.x = value
                 elif key == "y":
                     self.y = value
+
     def to_dictionary(self):
-       """returns the dictionary representation of the sqaure class"""
-       return {"id": self.id, "size": self.size, "x": self.x, "y": self.y}
+
+        """returns the dictionary representation of the sqaure class"""
+        return {"id": self.id, "size": self.size, "x": self.x, "y": self.y}
