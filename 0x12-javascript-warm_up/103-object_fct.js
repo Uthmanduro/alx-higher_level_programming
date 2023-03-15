@@ -8,7 +8,6 @@ Object.defineProperty(myObject, 'incr', {
   value: function () {
     myObject.value++;
   },
-  enumerable: true
 });
 myObject.incr();
 console.log(myObject);

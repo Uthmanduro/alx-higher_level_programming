@@ -5,9 +5,9 @@ if (process.argv.length <= 3) {
 } else {
   const arr = [];
   while (process.argv[count]) {
-    arr.unshift(process.argv[count]);
+    arr.unshift(Number(process.argv[count]));
     count++;
   }
-  arr.sort();
-  console.log(arr[arr.length - 2]);
+  arr.sort((a, b) => b - a);
+  console.log(arr[1]);
 }
