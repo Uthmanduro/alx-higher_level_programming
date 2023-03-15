@@ -1,17 +1,13 @@
 #!/usr/bin/node
 let count = 2;
-let highest = 0;
-if (process.argv.length <= 2) {
+if (process.argv.length <= 3) {
   console.log(0);
 } else {
+  const arr = [];
   while (process.argv[count]) {
-    let value = process.argv[count];
-    if (highest > value) {
-      continue;
-    } else {
-      highest = value;
-    }
+    arr.unshift(process.argv[count]);
     count++;
   }
-  console.log(highest);
+  arr.sort();
+  console.log(arr[arr.length - 2]);
 }
