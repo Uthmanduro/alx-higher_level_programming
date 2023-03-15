@@ -1,12 +1,11 @@
 #!/usr/bin/node
-const {dict} = require('./101-data');
-const length = Object.keys(dict).length;
-const values = Object.values(dict);
-const keys = Object.keys(dict);
-const newObject = {};
-for (let i = 0; i < length, i++) {
-  if (dict[values[i]] === ) {
-    
+const { dict } = require('./101-data');
+const result = {};
+for (const userId in dict) {
+  const occurrences = dict[userId];
+  if (!result[occurrences]) {
+    result[occurrences] = [];
   }
+  result[occurrences].push(userId);
 }
-console.log(Object.keys(dict).length);
+console.log(result);
