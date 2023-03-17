@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """lists al states from the database"""
+
+
 def main():
     import MySQLdb
     import sys
@@ -17,5 +19,7 @@ def main():
         print(item)
     cur.close()
     db.close()
+
+
 if __name__ == '__main__':
     main()
