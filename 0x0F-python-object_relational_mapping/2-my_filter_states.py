@@ -10,7 +10,7 @@ def main():
     dbname = sys.argv[3]
     name = sys.argv[4]
     db = MySQLdb.connect(host='localhost', port=3306, user=username,
-                         password=password, db=dbname)
+                         passwd=password, database=dbname)
     cursor = db.cursor()
     cursor.execute("SELECT * FROM states WHERE name = '{}'\
                    ORDER BY states.id;".format(name))

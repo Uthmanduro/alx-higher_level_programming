@@ -9,7 +9,7 @@ def main():
     password = sys.argv[2]
     dbname = sys.argv[3]
     db = MySQLdb.connect(host='localhost', port=3306, user=username,
-                         passwd=password, db=dbname)
+                         passwd=password, database=dbname)
     cursor = db.cursor()
     cursor.execute("SELECT * FROM states WHERE name LIKE 'N%'\
                    COLLATE utf8mb4_general_ci ORDER BY states.id ASC;")
