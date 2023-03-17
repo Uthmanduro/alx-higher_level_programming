@@ -12,10 +12,6 @@ if __name__ == '__main__':
                 cities.state_id = states.id WHERE states.name = %s\
                 ORDER BY cities.id;", (sys.argv[4],))
     cities = cur.fetchall()
-    for i, items in enumerate(cities):
-        if i == len(cities) - 1:
-            print(''.join(items))
-        else:
-            print(f"{''.join(items)}, ", end="")
+    print(", ".join(city[0] for city in cities))
     cur.close()
     db.close()
