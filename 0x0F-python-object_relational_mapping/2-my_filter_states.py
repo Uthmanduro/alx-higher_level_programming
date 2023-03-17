@@ -12,7 +12,7 @@ def main():
     db = MySQLdb.connect(host='localhost', port=3306, user=username,
                          passwd=password, database=dbname)
     cursor = db.cursor()
-    cursor.execute("SELECT * FROM states WHERE name = '{}'\
+    cursor.execute("SELECT * FROM states WHERE name = '{:s}'\
                    ORDER BY states.id;".format(name))
     result = cursor.fetchall()
     for item in result:
