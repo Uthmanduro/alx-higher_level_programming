@@ -12,7 +12,7 @@ def main():
                          passwd=password, database=dbname)
     cursor = db.cursor()
     cursor.execute("SELECT * FROM states WHERE name LIKE 'N%'\
-                   COLLATE utf8mb4_general_ci ORDER BY states.id ASC;")
+                   ORDER BY states.id ASC;")
     result = cursor.fetchall()
     for item in result:
         print(item)
