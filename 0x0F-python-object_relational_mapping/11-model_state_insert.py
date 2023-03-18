@@ -12,10 +12,8 @@ if __name__ == '__main__':
         sys.argv[1], sys.argv[2], sys.argv[3]))
     Session = sessionmaker(bind=engine)
     session = Session()
-    new_state = session.query(State).filter(State.id == 6).first()
-    if new_state is None:
-        new_state = State(id="", name="Louisiana")
-        session.add(new_state)
-        session.commit()
+    new_state = State(name = 'Louisiana')
+    session.add(new_state)
+    session.commit()
     print(new_state.id)
     session.close()
