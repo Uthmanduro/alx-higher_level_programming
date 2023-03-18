@@ -14,9 +14,8 @@ if __name__ == '__main__':
     session = Session()
     new_state = session.query(State).filter(State.id == 6).first()
     if new_state is None:
-        new_state = State(id=6, name="Louisiana")
+        new_state = State(id="", name="Louisiana")
         session.add(new_state)
         session.commit()
-    new_id = session.query(State).filter(State.name == "Louisiana").first()
-    print(new_id.id)
+    print(new_state.id)
     session.close()
