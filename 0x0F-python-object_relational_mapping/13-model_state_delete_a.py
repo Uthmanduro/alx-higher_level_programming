@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""changes the name of a state object from the database"""
+"""deletes all state objects with a name containing letter 'a' from the db"""
 
 
 import sys
@@ -12,7 +12,7 @@ if __name__ == '__main__':
         sys.argv[1], sys.argv[2], sys.argv[3]))
     Session = sessionmaker(bind=engine)
     session = Session()
-    query = session.query(State).filter(State.id == 2).first()
-    query.name = "New mexico"
+    new_states = session.query(State).filter(State.name.like('%a%')).all()
+    [session.delete(state) for state in new_states]
     session.commit()
     session.close()
