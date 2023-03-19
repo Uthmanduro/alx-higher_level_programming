@@ -9,6 +9,7 @@ import sys
 
 
 class City(Base):
+    """inheirts from cities and links to the mysql table cities"""
     __tablename__ = 'cities'
 
     id = Column(Integer, nullable=False, autoincrement=True, primary_key=True)

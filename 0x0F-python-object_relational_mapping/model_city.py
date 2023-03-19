@@ -8,6 +8,7 @@ from sqlalchemy.orm import relationship
 
 
 class City(Base):
+    """inherits from Base and links to the mysql table cities"""
     __tablename__ = 'cities'
 
     id = Column(Integer, nullable=False, autoincrement=True, primary_key=True,
