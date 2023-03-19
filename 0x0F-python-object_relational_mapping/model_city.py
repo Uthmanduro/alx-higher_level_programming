@@ -2,10 +2,9 @@
 """Contains the class definition of a city"""
 
 
-from sqlalchemy import create_engine, Column, Integer, String, ForeignKey
-from model_state import Base, State
+from sqlalchemy import Column, Integer, String, ForeignKey
+from model_state import Base
 from sqlalchemy.orm import relationship
-import sys
 
 
 class City(Base):
