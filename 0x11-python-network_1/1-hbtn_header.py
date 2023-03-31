@@ -2,10 +2,10 @@
 """sends a request and displays the value of X-Request-Id variable"""
 
 
-import urllib.request
+from urllib import request
 import sys
 
-url = sys.argv[1]
 if __name__ == "__main__":
-    with urllib.request.urlopen(url) as response:
+    url = sys.argv[1]
+    with request.urlopen(url) as response:
         print(response.info().get('X-Request-Id'))
