@@ -8,4 +8,4 @@ import sys
 url = sys.argv[1]
 if __name__ == "__main__":
     with urllib.request.urlopen(url) as response:
-        print(response.info()['X-Request-Id'])
+        print(response.info().get('X-Request-Id'))
