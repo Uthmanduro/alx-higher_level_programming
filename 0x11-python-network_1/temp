@@ -1,0 +1,15 @@
+#!/usr/bin/python3
+"""takes mt github credential to display my id"""
+
+
+import requests
+import sys
+
+if __name__ == "__main__":
+    res = requests.post("https://api.github.com/authorizations", auth=(sys.argv[1], sys.argv[2]), json={"scopes": ["read:user"], "note": "Test token"})
+    token = res.json()["token"]
+    headers = {"X-GitHub-Api-Version": "2022-11-28",
+               f"Authorization":
+               "token {token}"}
+    response = requests.get("https://api.github.com/user", headers=headers)
+    print(response.json()['id'])
