@@ -8,11 +8,9 @@ request.get(url, function (err, res, data) {
   const response = JSON.parse(data);
   let count = 0;
   for (const i of response.results) {
-    if (i.characters) {
-      for (const chars of i.characters) {
-        if (chars === 'https://swapi-api.alx-tools.com/api/people/18/') {
-          count++;
-        }
+    for (const chars of i.characters) {
+      if (chars === 'https://swapi-api.alx-tools.com/api/people/18/') {
+        count++;
       }
     }
   }
