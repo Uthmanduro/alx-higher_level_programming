@@ -3,15 +3,18 @@
 const request = require('request');
 const url = process.argv[2];
 request.get(url, function (err, res, data) {
+  if (err) throw err;
   const dict = JSON.parse(data);
-  let newdict = {};
-  let count = 0;
+  const newdict = {};
   for (const users of dict) {
-    let newid = users.userId;
-    if (newid in newdict && users.completed === true)
-      newdict[newid] = count++;
-    else if (!(newid in newdict))
-      newdict[newid] = count;
+    const newid = users.userId;
+    if (users.completed) {
+      if (newid in newdict) {
+        newdict[newid]++;
+      } else {
+        newdict[newid] = 1;
+      }
+    }
   }
   console.log(newdict);
 });

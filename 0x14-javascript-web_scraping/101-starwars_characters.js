@@ -7,7 +7,7 @@ const promisifiedRequest = promisify(request);
 const id = process.argv[2];
 const url = 'https://swapi-api.alx-tools.com/api/films/' + id + '/';
 
-(async function() {
+(async function () {
   try {
     const body = await promisifiedRequest(url);
     const chars = JSON.parse(body.body);
